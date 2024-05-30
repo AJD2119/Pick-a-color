@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrôle RGB, RGBA, HEX, HSL, et HSLA</title>
+    <link rel="stylesheet" href="index2.css">
+</head>
+
+<body onload="initializeRGB(); initializeRGBA(); initializeHSL(); initializeHSLA();">
+    <h1 style="text-align:center">Contrôle des couleurs</h1>
+
+    <!-- RGB Section-->
+    <div class="container">
+        <p id="rgbresulttext" style="font-size: 120%; font-weight: bold;">RGB, HEX --> HSL</p>
+        <div class="row">
+            <div class="col">
+                <div id="rgbresult" class="color-box" style="background-color: rgb(0, 0, 0);"></div>
+            </div>
+        </div>
+        <!-- Added line to display RGB, HEX, and HSL values -->
+        <div class="result-text" id="resultText1">Résultats1</div>
+        <div class="row">
+            <div class="col">
+                <p>RED</p>
+                <input onchange="changeRGB()" oninput="changeRGB()" type="range" id="slideRed" name="slideRed" value="0" min="0" max="255">
+            </div>
+            <div class="col">
+                <p>GREEN</p>
+                <input onchange="changeRGB()" oninput="changeRGB()" type="range" id="slideGreen" name="slideGreen" value="0" min="0" max="255">
+            </div>
+            <div class="col">
+                <p>BLUE</p>
+                <input onchange="changeRGB()" oninput="changeRGB()" type="range" id="slideBlue" name="slideBlue" value="0" min="0" max="255">
+            </div>
+        </div>
+        
+
+   <!-- RGBA Section -->
+<div class="container">
+    <p id="rgbaresulttext" style="font-size: 120%; font-weight: bold;">RGBA --> HSLA</p>
+    <div id="rgbaresult" class="color-box" style="background-color: rgba(0, 0, 0, 1);">
+    </div>
+    <!-- Added line to display RGBA and HSLA values -->
+    <div class="result-text" id="resultText2">Résultats2</div>
+    <div class="row">
+        <div class="col">
+            <p>RED</p>
+            <input onchange="changeRGBA()" oninput="changeRGBA()" type="range" id="slideRedAlpha" name="slideRedAlpha" value="0" min="0" max="255">
+        </div>
+        <div class="col">
+            <p>GREEN</p>
+            <input onchange="changeRGBA()" oninput="changeRGBA()" type="range" id="slideGreenAlpha" name="slideGreenAlpha" value="0" min="0" max="255">
+        </div>
+        <div class="col">
+            <p>BLUE</p>
+            <input onchange="changeRGBA()" oninput="changeRGBA()" type="range" id="slideBlueAlpha" name="slideBlueAlpha" value="0" min="0" max="255">
+        </div>
+        <div class="col">
+            <p>ALPHA</p>
+            <input onchange="changeAlpha()" oninput="changeAlpha()" type="range" id="slideAlpha" name="slideAlpha" value="1" min="0" max="1" step="0.01">
+        </div>
+    </div>
+</div>
+
+    <!-- HSL Section -->
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p id="hslresulttext" style="font-size: 120%; font-weight: bold;">HSL --> RGB, HEX</p>
+            <div id="hslresult" class="color-box" style="background-color: hsl(0, 0%, 0%);"></div>
+        </div>
+    </div>
+    <!-- Added line to display HSL, RGB, and HEX values -->
+    <div class="result-text" id="resultText3">Résultats3</div>
+    <div class="row">
+        <div class="col">
+            <p>HUE</p>
+            <input class="slider" onchange="changeHSL()" oninput="changeHSL()" type="range" id="slideHue" name="slideHue" value="0" min="0" max="360">
+        </div>
+        <div class="col">
+            <p>SATURATION</p>
+            <input class="slider" onchange="changeHSL()" oninput="changeHSL()" type="range" id="slideSaturation" name="slideSaturation" value="0" min="0" max="100">
+        </div>
+        <div class="col">
+            <p>LIGHTNESS</p>
+            <input class="slider" onchange="changeHSL()" oninput="changeHSL()" type="range" id="slideLightness" name="slideLightness" value="0" min="0" max="100">
+        </div>
+    </div>
+</div>
+
+    <!-- HSLA Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p id="hslaText" style="font-size: 120%; font-weight: bold;">HSLA --> RGBA</p>
+                <div id="hslAResult" class="color-box" style="background-color: hsla(0, 0%, 0%, 1);"></div>
+            </div>
+        </div>
+        <!-- Added line to display HSLA and RGBA values -->
+        <div class="result-text" id="resultText4">Résultats4</div>
+        <div class="row">
+            <div class="col">
+                <p>HUE</p>
+                <input class="slider" onchange="changeHSLA()" oninput="changeHSLA()" type="range" id="slideHueA" name="slideHueA" value="0" min="0" max="360">
+            </div>
+            <div class="col">
+                <p>SATURATION</p>
+                <input class="slider" onchange="changeHSLA()" oninput="changeHSLA()" type="range" id="slideSaturationA" name="slideSaturationA" value="0" min="0" max="100">
+            </div>
+            <div class="col">
+                <p>LIGHTNESS</p>
+                <input class="slider" onchange="changeHSLA()" oninput="changeHSLA()" type="range" id="slideLightnessA" name="slideLightnessA" value="0" min="0" max="100">
+            </div>
+            <div class="col">
+                <p>ALPHA</p>
+                <input class="slider" onchange="changeAlphaA()" oninput="changeAlphaA()" type="range" id="slideAlphaA" name="slideAlphaA" value="1" min="0" max="1" step="0.01">
+            </div>
+        </div>
+    </div>
+
+    <script src="index2.js"></script>
+</body>
+
+</html>
